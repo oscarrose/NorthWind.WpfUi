@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "JiTWqGdTDUh+tuZMSkgpETBkZOoj+oSLv/3Oyf3VAFaQKXt0UNylEKaNjb08ONurZ0eOlXkfNd+L3krYrNg/yA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\NorthWind.WpfUi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oscar\\.nuget\\packages\\controlzex\\4.3.0\\controlzex.4.3.0.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\mahapps.metro\\2.0.0\\mahapps.metro.2.0.0.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\materialdesignthemes.mahapps\\0.1.7\\materialdesignthemes.mahapps.0.1.7.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
+    "C:\\Users\\oscar\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\NorthWind.WpfUi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\NorthWind.WpfUi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\NorthWind.WpfUi.csproj",
+        "projectName": "NorthWind.WpfUi",
+        "projectPath": "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\NorthWind.WpfUi.csproj",
+        "packagesPath": "C:\\Users\\oscar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oscar\\OneDrive - Universidad Central del Este\\universidad ing. Software\\Septimo cuatrimestre\\programacion avanzada\\programas y mas\\NorthWind.WpfUi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\oscar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "MaterialDesignThemes.MahApps": {
+              "target": "Package",
+              "version": "[0.1.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
