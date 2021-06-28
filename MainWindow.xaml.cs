@@ -20,9 +20,14 @@ namespace NorthWind.WpfUi
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Para controlar maximizar y minimizar
+        bool isvalid = true;
         public MainWindow()
         {
+            
+
             InitializeComponent();
+           
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
@@ -41,6 +46,13 @@ namespace NorthWind.WpfUi
         {
             //for close of windows
             this.WindowState = WindowState.Minimized;
+        }
+        public void FullScreen()
+        {
+            //Metodo para poner pantalla completa solo cubra el area de trabajo
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+
         }
 
 
@@ -69,6 +81,24 @@ namespace NorthWind.WpfUi
                     GridOfUserControl.Children.Add(new OrdersControl());
                     break;
 
+                case 9:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlRegion());
+                    break;
+                case 10:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlTerritory());
+                    break;
+                case 8:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlSuppliers());
+                    break;
+
+                case 7:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlShippers());
+                    break;
+
                 default:
                     GridOfUserControl.Children.Clear();
                     GridOfUserControl.Children.Add(new HomeControl());
@@ -83,11 +113,32 @@ namespace NorthWind.WpfUi
         private void MoveArrowMenu(int index)
         {
             TrainsitionOfCOnteent.OnApplyTemplate();
-            Arrow.Margin = new Thickness(0, (100 + (80 * index)), 0, 0);
+            Arrow.Margin = new Thickness(0, (50 + (70 * index)), 0, 0);
         }
 
-       
-
         
+        private void Btnsize_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+
+            switch (isvalid)
+            {
+                case true:
+
+                    FullScreen();
+                    this.WindowState = WindowState.Maximized;
+                    isvalid = false;
+
+
+                    break;
+
+                case false:
+
+                    this.WindowState = WindowState.Normal;
+                    isvalid = true;
+                    break;
+            }
+
+        }
     }
 }

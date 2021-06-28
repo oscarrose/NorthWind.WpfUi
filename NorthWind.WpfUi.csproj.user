@@ -7,24 +7,36 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="HomeControl.xaml.cs">
+    <Compile Update="Static\HomeControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ListOrdersControl.xaml.cs">
+    <Compile Update="UserControlDesign\ListOrdersControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ModelAddCustomer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="OrdersControl.xaml.cs">
+    <Compile Update="UserControlDesign\OrdersControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlRegion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlShippers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlSuppliers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlTerritory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="HomeControl.xaml">
+    <Page Update="Static\HomeControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ListOrdersControl.xaml">
+    <Page Update="UserControlDesign\ListOrdersControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -33,7 +45,19 @@
     <Page Update="ModelAddCustomer.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="OrdersControl.xaml">
+    <Page Update="UserControlDesign\OrdersControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlRegion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlShippers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlSuppliers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlTerritory.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

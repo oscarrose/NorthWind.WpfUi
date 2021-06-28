@@ -12,7 +12,7 @@
         <!--Para la transicion-->
         <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
 
-            <StackPanel Margin="10,0,0,0">
+            <StackPanel Margin="0,-10,10,10">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <TextBlock Text="Welcome" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold" RenderTransformOrigin="0.073,0.459">
 
@@ -21,20 +21,20 @@
                 </StackPanel>
 
                 <StackPanel Width="200" Height="130" VerticalAlignment="Top" HorizontalAlignment="Right">
-                    <Image Width="110" Height="100" Source="/post_box_96px.png" Stretch="UniformToFill"/>
+                    <Image Width="110" Height="100" Source="post_box_96px.png" Stretch="UniformToFill"/>
                 </StackPanel>
 
                 <StackPanel Width="130" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <Image Width="120" Height="110" Source="/shopping_cart_96px.png" Stretch="UniformToFill" RenderTransformOrigin="0.465,0.498" />
+                    <Image Width="120" Height="110" Source="shopping_cart_96px.png" Stretch="UniformToFill" RenderTransformOrigin="0.465,0.498" />
 
                 </StackPanel>
 
                 <StackPanel Width="200" VerticalAlignment="Top" HorizontalAlignment="Center" >
-                    <Image Width="126" Height="109" Source="/in_transit_96px.png" Stretch="UniformToFill"/>
+                    <Image Width="126" Height="109" Source="track_order_96px.png" Stretch="UniformToFill"/>
                 </StackPanel>
 
                 <StackPanel Width="200" Height="130" VerticalAlignment="Top" HorizontalAlignment="Right" >
-                    <Image Width="126" Height="117" Source="/track_order_96px.png" Stretch="UniformToFill"/>
+                    <Image Width="126" Height="117" Source="in_transit_96px.png" Stretch="UniformToFill"/>
                 </StackPanel>
 
 

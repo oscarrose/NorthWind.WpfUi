@@ -6,17 +6,17 @@
                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:NorthWind.WpfUi"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
 
 
         <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
             <!--Para la transicion-->
-            <StackPanel Margin="10,-10,5,0" RenderTransformOrigin="0.191,0.486" Background="White" >
+            <StackPanel Margin="9,-10,6,0" RenderTransformOrigin="0.191,0.486" Background="White" >
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <!--para el titulo-->
-                    <TextBlock Text="Orders" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold" AutomationProperties.Name="userControlListOrders" RenderTransformOrigin="0.864,0.745">
+                    <TextBlock Text=" New orders" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold" AutomationProperties.Name="userControlListOrders" RenderTransformOrigin="0.864,0.745">
 
                     </TextBlock>
                 </StackPanel>
@@ -36,6 +36,7 @@
                         <ColumnDefinition></ColumnDefinition>
 
 
+
                     </Grid.ColumnDefinitions>
 
                     <!--Para los textblock que van a ingresar texto-->
@@ -51,8 +52,8 @@
                     <StackPanel VerticalAlignment="Top">
                         <TextBlock x:Name="CustomerIdError" Foreground="red" 
                                    Visibility="Collapsed" Grid.Row="0" Grid.Column="0">
-                        
-                        
+
+
                         </TextBlock>
                     </StackPanel>
 
@@ -219,171 +220,117 @@
                                    Visibility="Collapsed" Grid.Row="3" Grid.Column="0"/>
                     </StackPanel>
 
-                    <!--Button para el crud el de save-->
-                    <Button Grid.Column="1" Grid.Row="3"
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="SaveButton"
-                            Foreground="#00BFFF" RenderTransformOrigin="-0.043,0.497" Grid.ColumnSpan="2" Margin="154,16,0,2" Click="SaveButton_Click_1" >
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ContentSave" />
-                            <TextBlock
+                    <StackPanel Grid.Row="3" Grid.ColumnSpan="4" Margin="196,0,10,0" Background="white">
+                        <!--Para poner los botones del crud-->
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
                                 
-                                 Margin="8 0 0 0"
-                                  VerticalAlignment="Center"
-                                 Text="Save order"/>
-                        </StackPanel>
-                    </Button>
-
-
-                    <!--Button para el crud el de new orders-->
-                    <Button Grid.Column="1" Grid.Row="3"
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="NewOrderButton"
-                            Foreground="#4D9C70" RenderTransformOrigin="-0.043,0.497" Margin="12,15,0,3" >
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Add" />
-                            <TextBlock
                                 
-                                 Margin="8 0 0 0"
-                                  VerticalAlignment="Center"
-                                 Text="New order"/>
-                        </StackPanel>
-                    </Button>
-
-                    <!--Button para el crud el de editar-->
-                    <Button Grid.Column="2" Grid.Row="3"
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="EditOrderButton"
-                            Foreground="#D98C00" RenderTransformOrigin="-0.043,0.497" Grid.ColumnSpan="2" Margin="98,16,0,2" >
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Edit" />
-                            <TextBlock
-                                
-                                 Margin="8 0 0 0"
-                                  VerticalAlignment="Center"
-                                 Text=" Edit order"/>
-                        </StackPanel>
-                    </Button>
-
-                    <!--Button para el crud el de Cancel-->
-                    <Button Grid.Column="3" Grid.Row="3"
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="CancelOrderButton"
-                            Foreground="#FF2626" RenderTransformOrigin="-0.043,0.497" Margin="50,16,0,2" >
-
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Cancel" />
-                            <TextBlock
-                                
-                                 Margin="8 0 0 0"
-                                  VerticalAlignment="Center"
-                                 Text=" Cancel order"/>
-                        </StackPanel>
-                    </Button>
-
-
-
-                </Grid>
-
-                <Grid VerticalAlignment="Top" Margin="0 15 0 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="130"></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="450"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <!--Para el titulo del customer"-->
-                    <StackPanel Grid.Row="0" Grid.Column="0" Width="100" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock
+                            </Grid.RowDefinitions>
                             
-
-                          Foreground="Black"
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
                             
-                           VerticalAlignment="Top"
-                           Text="Customer" FontSize="20" FontWeight="Normal" FontFamily="Arial Rounded MT Bold"/>
+                            
+                            <!--Button para el crud el de new orders-->
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                               HorizontalAlignment="Left"
+                                x:Name="NewOrderButton"
+                                Foreground="#4D9C70"  Margin="12,15,0,3" >
 
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="0" Grid.Column="0" Width="100" Height="40" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <!--Button para agregar customer-->
-                        <Button 
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="AddCustomer"
-                            Foreground="#4D9C70" Width="85"
-                            Click="AddCustomer_Click">
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="AddCircle" />
-                                <TextBlock
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Add" />
+                                        <TextBlock
                                 
-                                 Margin="5 0 0 0"
-                                  VerticalAlignment="Center"
-                                 Text="Add"/>
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text="New order"/>
+                                    </StackPanel>
+                                </Button>
                             </StackPanel>
-                        </Button>
 
+                            <!--Button para el crud el de save-->
+                            <StackPanel Grid.Column="1" Grid.Row="0"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                               HorizontalAlignment="Left"
+                                x:Name="SaveButton"
+                                Foreground="#00BFFF" Margin="12,15,0,3" Click="SaveButton_Click_1" >
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="ContentSave" />
+                                        <TextBlock
+                                
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text="Save order"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <!--Button para el crud el de editar-->
+                            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                               HorizontalAlignment="Left"
+                                x:Name="EditOrderButton"
+                                Foreground="#D98C00" Margin="12,15,0,3" >
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Edit" />
+                                        <TextBlock
+                                
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text=" Edit order"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+                            <!--Button para el crud el de Cancel-->
+                            <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                               HorizontalAlignment="Left"
+                                x:Name="CancelOrderButton"
+                                Foreground="#FF2626"  Margin="12,15,0,3" >
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Cancel" />
+                                        <TextBlock
+                                
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text=" Cancel order"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
+
+
+
+                        </Grid>
+                        
                     </StackPanel>
+                   
+                   
 
 
-                    <!--Para el grid de customer"-->
-                    <DataGrid x:Name="GridCustomer" Grid.Row="1" Grid.Column="0" AutoGenerateColumns="True"  
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto" RenderTransformOrigin="0.233,0.507">>
-                        <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Customer ID" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Address" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="City" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Region" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Postal Code" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Country" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Phone" IsReadOnly="True"  />
-                        </DataGrid.Columns>
+                   
 
-                    </DataGrid>
-
-                    <!--Para el titulo de la columna de employee "-->
-                    <StackPanel Grid.Row="0" Grid.Column="1" Width="100" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25 0 0 0">
-                        <TextBlock
-                            
-
-                          Foreground="Black"
-                            
-                           VerticalAlignment="Top"
-                           Text="Employee" FontSize="20" FontWeight="Normal" FontFamily="Arial Rounded MT Bold"/>
-
-                    </StackPanel>
-
-                    <!--Para el grid de employee"-->
-                    <DataGrid x:Name="GridEmployee" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="True"  Margin="15 0 0 0"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto">>
-                        <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Employee ID" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Title Of Courtesy" IsReadOnly="True"  />
-                            <DataGridCheckBoxColumn Header="Title" IsReadOnly="True"  />
-                        </DataGrid.Columns>
-
-                    </DataGrid>
-
-
-
+                   
 
 
                 </Grid>
+
+               
 
 
 

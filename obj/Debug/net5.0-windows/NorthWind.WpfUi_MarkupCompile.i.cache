@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\App.xaml
-5104056811
+9-747617084
 
-91939752533
+131868082907
 199-85181506
-HomeControl.xaml;ListOrdersControl.xaml;MainWindow.xaml;ModelAddCustomer.xaml;OrdersControl.xaml;
+MainWindow.xaml;ModelAddCustomer.xaml;Static\HomeControl.xaml;UserControlDesign\ListOrdersControl.xaml;UserControlDesign\OrdersControl.xaml;UserControlDesign\UserControlRegion.xaml;UserControlDesign\UserControlShippers.xaml;UserControlDesign\UserControlSuppliers.xaml;UserControlDesign\UserControlTerritory.xaml;
 
-True
+False
 

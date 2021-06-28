@@ -11,6 +11,10 @@
     <None Remove="amazon_shopping_app_96px.png" />
     <None Remove="in_transit_96px.png" />
     <None Remove="post_box_96px.png" />
+    <None Remove="resources\in_transit_96px.png" />
+    <None Remove="resources\post_box_96px.png" />
+    <None Remove="resources\shopping_cart_96px.png" />
+    <None Remove="resources\track_order_96px.png" />
     <None Remove="shopping_cart_96px.png" />
     <None Remove="track_order_96px.png" />
   </ItemGroup>
@@ -21,11 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="amazon_shopping_app_96px.png" />
-    <Resource Include="in_transit_96px.png" />
-    <Resource Include="post_box_96px.png" />
-    <Resource Include="shopping_cart_96px.png" />
-    <Resource Include="track_order_96px.png" />
+    <Resource Include="Static\amazon_shopping_app_96px.png" />
+    <Resource Include="Static\in_transit_96px.png" />
+    <Resource Include="Static\post_box_96px.png" />
+    <Resource Include="Static\shopping_cart_96px.png" />
+    <Resource Include="Static\track_order_96px.png" />
   </ItemGroup>
 
 </Project>

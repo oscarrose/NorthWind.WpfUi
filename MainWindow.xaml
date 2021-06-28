@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NorthWind.WpfUi"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        mc:Ignorable="d" AllowsTransparency="True"  Height="600" Width="1055" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+
+
     <!--Encasular todo dentro del grid-->
     <Grid Background="White" MouseDown="Grid_MouseDown">
 
@@ -17,8 +19,8 @@
             <Grid Margin="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
-                    <Button x:Name="BtnHelp" Width="40" Height="40" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Margin="0 0 10 0" >
-                        <materialDesign:PackIcon Kind="Help" />
+                    <Button x:Name="Btnsize" Width="40" Height="40" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Margin="0 0 10 0" Click="Btnsize_Click_1" >
+                        <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
 
                     <Button x:Name="BtnMinimized" Click="BtnMinimized_Click" Width="40" Height="40" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" Margin="0 0 10 0" >
@@ -56,22 +58,16 @@
             </StackPanel>
 
 
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 20">
-                <!--Para el botton de salir-->
-                <materialDesign:PackIcon Kind="SignOut" Width="35" Height="35" VerticalAlignment="Center" Margin="5" Background="{x:Null}" Foreground="White"/>
-                <TextBlock Text=" Sign Out" FontSize="20" VerticalAlignment="Center" Margin="20 0" Foreground="White"/>
-            </StackPanel>   
-
 
             <!--Para la transicion-->
             <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-                <Grid x:Name="Arrow" Margin="0,100" Background="#6458FF" Width="10" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top"/>
+                <Grid x:Name="Arrow" Margin="0,54,0,0" Background="#6458FF" Width="10" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top"/>
             </materialDesign:TransitioningContent>
 
-            <ListView x:Name="ListMenu" Margin="0 100" Foreground="White"  SelectionChanged="ListMenu_SelectionChanged" SelectedIndex="0" >
+            <ListView x:Name="ListMenu" Margin="0 50 0 0" Foreground="White"  SelectionChanged="ListMenu_SelectionChanged" SelectedIndex="0" >
                 <!--Lista para el menu-->
 
-                <ListViewItem Height="80" >
+                <ListViewItem Height="70" >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="HomeCircle" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <TextBlock Text="Home" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
@@ -79,7 +75,7 @@
                 </ListViewItem>
 
 
-                <ListViewItem Height="80" >
+                <ListViewItem Height="70" >
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="BoxViewOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <TextBlock Text="List Orders" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
@@ -87,20 +83,102 @@
                 </ListViewItem>
 
 
-                <ListViewItem Height="80">
+                <ListViewItem Height="70">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="StorefrontOutline" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
                         <TextBlock Text="Orders" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
 
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PeopleGroup" Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Customers" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="BoxVariant"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Products" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="ViewList"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Categories" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="People"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Employees" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CustomerService"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Shippers" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="People"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Suppliers" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="LegoLocation"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Region" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+
+
+                <ListViewItem Height="70">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Location"  Width="30" Height="30" VerticalAlignment="Center" Margin="5"/>
+                        <TextBlock Text="Territories" FontSize="17" VerticalAlignment="Center" Margin="20 0"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+                <ListViewItem>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 20">
+                        <!--Para el botton de salir-->
+                        <materialDesign:PackIcon Kind="SignOut" Width="35" Height="35" VerticalAlignment="Center" Margin="5" Background="{x:Null}" Foreground="White"/>
+                        <TextBlock Text=" Sign Out" FontSize="20" VerticalAlignment="Center" Margin="20 0" Foreground="White"/>
+                    </StackPanel>
+
+                </ListViewItem>
+
+
+
+
+
 
             </ListView>
 
 
         </Grid>
-        
-        
+
+
 
 
 
