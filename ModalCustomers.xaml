@@ -1,0 +1,390 @@
+﻿<Window x:Class="NorthWind.WpfUi.ModalCustomers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorthWind.WpfUi"
+       
+          mc:Ignorable="d" ResizeMode="NoResize" Background="#F5F5F5" Height="721" Width="882" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" >
+    <Grid>
+        <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromTop, Duration=0:0:0.8}">
+
+            <StackPanel Background="White">
+
+                <Grid VerticalAlignment="Top" Margin="0 20 20 0 ">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50">
+
+                        </RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="ButtonBack" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" 
+                            Width="180" Height="50" Background="{x:Null}" 
+                            BorderBrush="{x:Null}" Foreground="Black" Click="ButtonBack_Click"  >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
+                                    VerticalAlignment="Top">
+                            <materialDesign:PackIcon Kind="ArrowBack" Width="30" Height="25"/>
+                            <TextBlock Text="Add Customer" FontSize="16" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+
+
+                </Grid>
+                <!--Card para poner los inputs de customer-->
+                <materialDesign:Card Width="760" Height="269" Background="#FEFEFE" Margin="0 20 0 0 "
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <!--Para los textblock que van a ingresar texto-->
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Customer code" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="0"
+                              Grid.Column="0"
+                              x:Name="InputCustomerCode" 
+                        />
+                        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top">
+                            <TextBlock x:Name="CustomerCodeError" Foreground="red" 
+                                   Visibility="Collapsed" Grid.Row="0" Grid.Column="0"/>
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Contact Name" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="0"
+                              Grid.Column="1"
+                              x:Name="InputContactName" 
+                        />
+                        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
+                            <TextBlock x:Name="ContactNameError" Foreground="red" 
+                                   Visibility="Collapsed" Grid.Row="0" Grid.Column="0"/>
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Contact Title" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="0"
+                              Grid.Column="2"
+                              x:Name="InputContactTitle" 
+                        />
+                        <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Top">
+                            <TextBlock x:Name="ContactTitleError" Foreground="red" 
+                                   Visibility="Collapsed" Grid.Row="0" Grid.Column="0"/>
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Address" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              x:Name="InputAddress" 
+                        />
+                        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+                            <TextBlock x:Name="AddressError" Foreground="red" 
+                                   Visibility="Collapsed" />
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="City" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="1"
+                              Grid.Column="1"
+                              x:Name="InputCity" 
+                        />
+                        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                            <TextBlock x:Name="CityError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Region" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="1"
+                              Grid.Column="2"
+                              x:Name="InputRegion" 
+                        />
+                        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
+                            <TextBlock x:Name="RegionError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Postal Code" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="2"
+                              Grid.Column="0"
+                              x:Name="InputPostalCode" 
+                        />
+                        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Top">
+                            <TextBlock x:Name="PostalCodeError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Country" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="2"
+                              Grid.Column="1"
+                              x:Name="InputCountry" 
+                        />
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Top">
+                            <TextBlock x:Name="CountryError" Foreground="red" 
+                                   Visibility="Collapsed" Grid.Row="2" Grid.Column="1"/>
+                        </StackPanel>
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Phone" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="2"
+                              Grid.Column="2"
+                              x:Name="InputPhone" 
+                        />
+                        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Top">
+                            <TextBlock x:Name="PhoneError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+
+                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                            materialDesign:HintAssist.Hint="Fax" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="3"
+                              Grid.Column="0"
+                              x:Name="InputFax" 
+                        />
+                        <StackPanel Grid.Row="3" Grid.Column="0" VerticalAlignment="Top">
+                            <TextBlock x:Name="FaxError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+                        <!--Button para el crud el de save-->
+                        <Button Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom"
+                          Style="{DynamicResource MaterialDesignFlatButton}"
+                           HorizontalAlignment="Right"
+                            x:Name="SaveProductButton"
+                            Foreground="#00BFFF" Click="SaveProductButton_Click" >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                                <TextBlock
+                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                />
+                            </StackPanel>
+                        </Button>
+
+
+
+                    </Grid>
+
+                </materialDesign:Card>
+
+                <!--Card para poner los inputs de CustomerDemographics-->
+                <materialDesign:Card Width="760" Height="136" Background="#FEFEFE" Margin="0 30 0 0 "
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="43"></RowDefinition>
+                            <RowDefinition Height="117"></RowDefinition>
+
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+
+
+                        </Grid.ColumnDefinitions>
+
+                        <!--Para los textblock que van a ingresar texto-->
+                        <TextBlock Text="Customer Demographics" FontSize="16"
+                                   Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                   Width="227" Margin="10,0,0,0" FontWeight="Bold" Height="29"
+                         />
+
+                        <Button Grid.Column="1" Grid.Row="0" VerticalAlignment="Top"
+                          Style="{DynamicResource MaterialDesignFlatButton}"
+                           HorizontalAlignment="Right"
+                            x:Name="SaveCustomerGraphicsButton"
+                            Foreground="#00BFFF" Height="32" Width="98" Click="SaveCustomerGraphicsButton_Click"  >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                                <TextBlock
+                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                />
+                            </StackPanel>
+                        </Button>
+
+
+
+                        <TextBox  FontSize="14" Margin="0,0,10,45"
+                            materialDesign:HintAssist.Hint="Customer Desc" 
+                                  materialDesign:HintAssist.Foreground="Black" 
+                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
+                                  FontFamily="Arial"
+                              Grid.Row="1"
+                              Grid.Column="0"
+                              x:Name="InputCustomerDesc" 
+                        />
+
+                        <StackPanel Grid.Column="0" VerticalAlignment="Top" Height="23" Margin="0,34,0,0" Grid.RowSpan="2">
+                            <TextBlock x:Name="CustomerDescError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                </materialDesign:Card>
+
+
+                <!--Card para poner los inputs de CustomerCustomerDemo-->
+                <materialDesign:Card Width="760" Height="146" Background="#FEFEFE" Margin="0 30 0 0 "
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
+
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="43"></RowDefinition>
+                            <RowDefinition Height="117"></RowDefinition>
+
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+
+
+                        </Grid.ColumnDefinitions>
+
+                        <!--Para los textblock que van a ingresar texto-->
+                        <TextBlock Text="Customer Demo" FontSize="16"
+                                   Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                   Width="227" Margin="10,0,0,0" FontWeight="Bold" Height="29"
+                         />
+
+                        <Button Grid.Column="1" VerticalAlignment="Center"
+                          Style="{DynamicResource MaterialDesignFlatButton}"
+                           HorizontalAlignment="Left"
+                            x:Name="SaveCustomerDemoButton"
+                            Foreground="#00BFFF" Height="32" Width="98" Click="SaveCustomerDemoButton_Click" Margin="274,0,0,0"  >
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                                <TextBlock
+                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                />
+                            </StackPanel>
+                        </Button>
+
+                        <ComboBox materialDesign:HintAssist.Hint="Customer" Grid.Column="0"  Grid.Row="1"
+                                    IsEditable="True" Margin="0,20,10,0" x:Name="InputCustomerDemo" VerticalAlignment="Top"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="55">
+                            <ComboBoxItem
+                                         IsSelected="True">
+                                choose customer
+                            </ComboBoxItem>
+
+                            <ComboBoxItem>
+                                HR
+                            </ComboBoxItem>
+
+                            <ComboBoxItem>
+                                Finance
+                            </ComboBoxItem>
+
+                        </ComboBox>
+                        <StackPanel Grid.Column="0" VerticalAlignment="Top" Height="20" Grid.Row="1">
+                            <TextBlock x:Name="EmployeesError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+
+                        <ComboBox materialDesign:HintAssist.Hint="Customer type" Grid.Column="1"  Grid.Row="1"
+                                    IsEditable="True"  x:Name="InputCustomertype" VerticalAlignment="Top"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="50" Margin="0,25,0,0">
+                            <ComboBoxItem
+                                         IsSelected="True">
+                                choose customer type
+                            </ComboBoxItem>
+
+                            <ComboBoxItem>
+                                HR
+                            </ComboBoxItem>
+
+                            <ComboBoxItem>
+                                Finance
+                            </ComboBoxItem>
+
+                        </ComboBox>
+
+                        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="top" Height="20">
+                            <TextBlock x:Name="CustomerIDDemoError" Foreground="red" 
+                                   Visibility="Collapsed"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                </materialDesign:Card>
+
+            </StackPanel>
+
+        </materialDesign:TransitioningContent>
+
+    </Grid>
+</Window>

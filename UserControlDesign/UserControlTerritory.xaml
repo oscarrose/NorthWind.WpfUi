@@ -38,7 +38,7 @@
                         
                             >
                         <ComboBoxItem IsSelected="True">
-                            Choose</ComboBoxItem>
+                          Choose region</ComboBoxItem>
                         <ComboBoxItem>
                             1...
                         </ComboBoxItem>
@@ -88,24 +88,6 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <!--Button para el crud el de new region-->
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"
-                                HorizontalAlignment="Right" Height="50" Width="142">
-                        <Button 
-                              Style="{DynamicResource MaterialDesignFlatButton}"
-                                x:Name="NewTerritoryButton"
-                                Foreground="#4D9C70"  Margin="12,15,0,3" Width="98" >
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Add" />
-                                <TextBlock
-                                
-                                     Margin="8 0 0 0"
-                                      VerticalAlignment="Center"
-                                     Text="New"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
 
                     <!--Button para el crud el de save-->
                     <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" 

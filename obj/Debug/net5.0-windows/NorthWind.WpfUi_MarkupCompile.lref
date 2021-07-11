@@ -1,10 +1,18 @@
 ﻿
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\App.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\MainWindow.xaml;;
-FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModelAddCustomer.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModalCategory.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModalCustomers.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModalEmployees.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModalOrders.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\ModalProduct.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\Static\HomeControl.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\ListOrdersControl.xaml;;
-FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\OrdersControl.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlCategory.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlCustomers.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlEmployees.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlOrder.xaml;;
+FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlProduct.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlRegion.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlShippers.xaml;;
 FC:\Users\oscar\OneDrive - Universidad Central del Este\universidad ing. Software\Septimo cuatrimestre\programacion avanzada\programas y mas\NorthWind.WpfUi\UserControlDesign\UserControlSuppliers.xaml;;

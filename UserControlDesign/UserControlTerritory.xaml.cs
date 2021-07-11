@@ -46,7 +46,7 @@ namespace NorthWind.WpfUi
         {
             var isvalid = true;
 
-            if (InputRegionId.Text.Trim()== "Choose")
+            if (InputRegionId.Text.Trim()== "Choose region")
             {
                 RegionIdError.Text = "The region Id is required";
                 RegionIdError.Visibility = Visibility.Visible;

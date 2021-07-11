@@ -41,11 +41,15 @@ namespace NorthWind.WpfUi
 
             DragMove();
         }
+        public void Minimized()
+        {
+            this.WindowState = WindowState.Minimized;
 
+        }
         private void BtnMinimized_Click(object sender, RoutedEventArgs e)
         {
             //for close of windows
-            this.WindowState = WindowState.Minimized;
+            Minimized();
         }
         public void FullScreen()
         {
@@ -78,7 +82,24 @@ namespace NorthWind.WpfUi
 
                 case 2:
                     GridOfUserControl.Children.Clear();
-                    GridOfUserControl.Children.Add(new OrdersControl());
+                    GridOfUserControl.Children.Add(new UserControlDesign.UserControlOrder());
+                    break;
+
+
+                case 3:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlDesign.UserControlCustomers());
+                     break;
+
+                case 4:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlDesign.UserControlProduct());
+                    break;
+
+
+                case 6:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlDesign.UserControlEmployees());
                     break;
 
                 case 9:
@@ -93,7 +114,10 @@ namespace NorthWind.WpfUi
                     GridOfUserControl.Children.Clear();
                     GridOfUserControl.Children.Add(new UserControlSuppliers());
                     break;
-
+                case 5:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new UserControlDesign.UserControlCategory());
+                    break;
                 case 7:
                     GridOfUserControl.Children.Clear();
                     GridOfUserControl.Children.Add(new UserControlShippers());

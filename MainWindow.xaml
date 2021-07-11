@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NorthWind.WpfUi"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" AllowsTransparency="True"  Height="600" Width="1055" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        mc:Ignorable="d" AllowsTransparency="True"  Height="600" Width="1055" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized">
 
 
     <!--Encasular todo dentro del grid-->

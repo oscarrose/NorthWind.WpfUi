@@ -7,16 +7,40 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ModalCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalCustomers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalEmployees.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalOrders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ModalProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Static\HomeControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDesign\ListOrdersControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ModelAddCustomer.xaml.cs">
+    <Compile Update="UserControlDesign\UserControlCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControlDesign\OrdersControl.xaml.cs">
+    <Compile Update="UserControlDesign\UserControlCustomers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlEmployees.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserControlDesign\UserControlProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControlDesign\UserControlRegion.xaml.cs">
@@ -33,6 +57,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ModalCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModalCustomers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModalEmployees.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModalOrders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModalProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Static\HomeControl.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,10 +81,19 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ModelAddCustomer.xaml">
+    <Page Update="UserControlDesign\UserControlCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControlDesign\OrdersControl.xaml">
+    <Page Update="UserControlDesign\UserControlCustomers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlEmployees.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControlDesign\UserControlProduct.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControlDesign\UserControlRegion.xaml">
