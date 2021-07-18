@@ -38,17 +38,9 @@
                         
                             >
                         <ComboBoxItem IsSelected="True">
-                          Choose region</ComboBoxItem>
-                        <ComboBoxItem>
-                            1...
+                            Choose region
                         </ComboBoxItem>
-                        <ComboBoxItem>
-                            2....
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            2...
-                        </ComboBoxItem>
-
+                       
                     </ComboBox>
                     <StackPanel VerticalAlignment="Top" Margin="20 -8 0 0" Grid.Row="0">
                         <TextBlock x:Name="RegionIdError" Foreground="red" 
@@ -76,22 +68,41 @@
                 </Grid>
 
                 <!--Para los botones-->
-                <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 10 0">
+                <Grid HorizontalAlignment="Right" Margin="0 0 10 0" Width="527">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50*"></RowDefinition>
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="138*"></ColumnDefinition>
+                        <ColumnDefinition Width="138*"></ColumnDefinition>
+                        <ColumnDefinition Width="139*"></ColumnDefinition>
+                        <ColumnDefinition Width="125*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+                    <!--Button para el crud el de save-->
+                    <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" 
+                                 HorizontalAlignment="Left" Grid.Column="0" Height="50" 
+                                 Margin="7,0,0,0" Width="131">
+                        <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                                x:Name="NewTerritoryButton"
+                                Foreground="#33684A" Margin="0,15,0,3" Width="98">
+
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Add" />
+                                <TextBlock
+                                
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text="New"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
 
 
                     <!--Button para el crud el de save-->
                     <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" 
-                                 HorizontalAlignment="Left" Grid.Column="1"  Grid.Row="0" Height="50" 
+                                 HorizontalAlignment="Left" Grid.Column="1" Height="50" 
                                  Margin="7,0,0,0" Width="131">
                         <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
@@ -110,12 +121,12 @@
                     </StackPanel>
 
                     <!--Button para el crud el de editar-->
-                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                                Height="50" Width="130" Grid.Row="0" >
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                Height="50" Width="130" >
                         <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
-                                x:Name="EditRegionButton"
-                                Foreground="#D98C00" Margin="-3,15,0,3" Width="98" >
+                                x:Name="EditTerritoryButton"
+                                Foreground="#D98C00" Margin="-3,15,0,3" Width="146" IsEnabled="False" >
 
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Edit" />
@@ -123,7 +134,7 @@
                                 
                                      Margin="8 0 0 0"
                                       VerticalAlignment="Center"
-                                     Text=" Edit"/>
+                                     Text="Save changes"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -132,11 +143,11 @@
                     <!--Button para el crud el de Delete-->
                     <StackPanel Grid.Column="3" Orientation="Horizontal"
                                 VerticalAlignment="Center" 
-                                HorizontalAlignment="Left" Height="50" Width="134">
+                                HorizontalAlignment="Center" Height="50" Width="134">
                         <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
                                 x:Name="DeleteTerritoryButton"
-                                Foreground="#FF2626"  Margin="-5,15,10,0" Width="98" >
+                                Foreground="#FF2626"  Margin="-5,15,10,0" Width="98" IsEnabled="False" IsCancel="True" >
 
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Delete" Height="19"/>
@@ -151,23 +162,17 @@
 
 
                 </Grid>
-                
-                 <!--Para ver los datos-->
-                <DataGrid  x:Name="DataGridTerritory"  Background="White" FontFamily="Arial" Margin="10 10 10 0"
-                          ScrollViewer.CanContentScroll="True" HorizontalAlignment="Center"
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto">
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Territory ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="150"/>
-                        <DataGridTextColumn Header="Territory descripcion" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Region ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="200"/>
-
-                    </DataGrid.Columns>
+                <!--Para ver los datos-->
 
 
+                <DataGrid x:Name="DataGridTerritory"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" IsReadOnly="True" 
+                              SelectionUnit="FullRow" Margin="10,0,26,10" Height="481" 
+                              />
 
-                </DataGrid>
+
 
 
 

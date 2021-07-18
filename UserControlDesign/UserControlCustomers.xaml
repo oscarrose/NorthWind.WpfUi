@@ -55,7 +55,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#4D9C70" Click="NewCustomerButton_Click" >
+                                    Foreground="#4D9C70" IsDefault="True" >
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Add" Height="27" Width="26"/>
                                 </StackPanel>
@@ -74,7 +74,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#D98C00">
+                                    Foreground="#D98C00" IsEnabled="False">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Edit" Height="22" Width="26"/>
                                 </StackPanel>
@@ -94,7 +94,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#FF2626">
+                                    Foreground="#FF2626" IsEnabled="False">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Delete" Height="22" Width="26"/>
                                 </StackPanel>
@@ -106,31 +106,16 @@
                     </Grid>
 
                     <!--Para mostrar los datos-->
-                    <DataGrid x:Name="DtGridCustomer" Width="auto" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
-                          VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" 
-                          FontFamily="Arial" Margin="10,0,10,10"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          FontSize="16" Foreground="Black">
-                        <DataGrid.Columns >
-                            <DataGridTemplateColumn Header="customer Code" IsReadOnly="True" Width="auto"   />
-                            <DataGridTemplateColumn Header="Company Name" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Contact Name" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Contact Title" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Address" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="City" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Region" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Postal code" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Country" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Phone" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Fax" IsReadOnly="True" Width="auto"/>
+                    <Grid Height="630" Margin="10 0 10 10" >
 
-                        </DataGrid.Columns>
+                        <DataGrid x:Name="DataGridCustomer"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,0"  IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                        <System:String>&gt;</System:String>
-
-                    </DataGrid>
+                    </Grid>
+                   
 
 
 

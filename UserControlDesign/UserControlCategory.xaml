@@ -20,7 +20,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="10, 10,10,10"  VerticalAlignment="Top" HorizontalAlignment="Left">
                     <!--para el titulo-->
-                    <TextBlock Text="Categories" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold"/>
+                    <TextBlock  Text="Categories" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold"/>
                 </StackPanel>
                 <!--Para el modal de agregar y eso-->
                 <Grid>
@@ -72,7 +72,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#D98C00">
+                                    Foreground="#D98C00" IsEnabled="False">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Edit" Height="22" Width="26"/>
                             </StackPanel>
@@ -94,7 +94,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#FF2626">
+                                    Foreground="#FF2626" IsEnabled="False">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Delete" Height="22" Width="26"/>
                             </StackPanel>
@@ -104,20 +104,16 @@
 
                 </Grid>
                 <!--Para mostrar los datos-->
-                <DataGrid x:Name="DtGridCategory" Width="auto" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
-                          VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="0"
-                          FontFamily="Arial" AutoGenerateColumns="True" Margin="10,0,10,10"
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="16" Foreground="Black">
-                    <DataGrid.Columns >
-                        <DataGridTemplateColumn Header="Category ID" IsReadOnly="True" Width="125"   />
-                        <DataGridTemplateColumn Header="Categoy name" IsReadOnly="True" Width="140"/>
-                        <DataGridTemplateColumn Header="Description" IsReadOnly="True" Width="250*"/>
-                        <DataGridTemplateColumn Header="Picture" IsReadOnly="True" Width="250"/>
+                <Grid Height="630" Margin="10 0 10 10" >
 
-                    </DataGrid.Columns>
+                    <DataGrid x:Name="DataGriCategories"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,0"  IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                </DataGrid>
+                </Grid>
+
 
 
 

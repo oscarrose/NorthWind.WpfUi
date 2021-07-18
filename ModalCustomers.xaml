@@ -25,12 +25,12 @@
                     </Grid.ColumnDefinitions>
 
                     <Button x:Name="ButtonBack" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" 
-                            Width="180" Height="50" Background="{x:Null}" 
+                            Width="304" Height="50" Background="{x:Null}" 
                             BorderBrush="{x:Null}" Foreground="Black" Click="ButtonBack_Click"  >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
                                     VerticalAlignment="Top">
                             <materialDesign:PackIcon Kind="ArrowBack" Width="30" Height="25"/>
-                            <TextBlock Text="Add Customer" FontSize="16" Margin="5,0,0,0"/>
+                            <TextBlock x:Name="title" Text="Add Customer" FontSize="16" Margin="5,0,0,0" Width="188"/>
                         </StackPanel>
                     </Button>
 
@@ -58,14 +58,14 @@
 
                         <!--Para los textblock que van a ingresar texto-->
                         <TextBox  FontSize="14" Margin="0 0 10 10"
-                            materialDesign:HintAssist.Hint="Customer code" 
+                            materialDesign:HintAssist.Hint="Comapny Name" 
                                   materialDesign:HintAssist.Foreground="Black" 
                               materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
                                   FontFamily="Arial"
                               Grid.Row="0"
                               Grid.Column="0"
-                              x:Name="InputCustomerCode" 
+                              x:Name="InputCompanyName" 
                         />
                         <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Top">
                             <TextBlock x:Name="CustomerCodeError" Foreground="red" 
@@ -214,13 +214,13 @@
                         <Button Grid.Column="2" Grid.Row="3" VerticalAlignment="Bottom"
                           Style="{DynamicResource MaterialDesignFlatButton}"
                            HorizontalAlignment="Right"
-                            x:Name="SaveProductButton"
-                            Foreground="#00BFFF" Click="SaveProductButton_Click" >
+                            x:Name="SaveCustomerButton"
+                            Background="#00BFFF" >
 
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" Foreground="White"/>
                                 <TextBlock
-                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                 Text="Save" FontSize="18" Height="38" Width="39" Foreground="White"
                                 />
                             </StackPanel>
                         </Button>
@@ -232,10 +232,10 @@
                 </materialDesign:Card>
 
                 <!--Card para poner los inputs de CustomerDemographics-->
-                <materialDesign:Card Width="760" Height="136" Background="#FEFEFE" Margin="0 30 0 0 "
-                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
+                <materialDesign:Card Width="760" Height="136" Background="#FEFEFE" Margin="0 30 0 0 " x:Name="ContexDemoGraphics"
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8" IsEnabled="False">
 
-                    <Grid >
+                    <Grid x:Name="GridObject">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="43"></RowDefinition>
                             <RowDefinition Height="117"></RowDefinition>
@@ -251,7 +251,7 @@
                         </Grid.ColumnDefinitions>
 
                         <!--Para los textblock que van a ingresar texto-->
-                        <TextBlock Text="Customer Demographics" FontSize="16"
+                        <TextBlock Text="Customer Demographics" FontSize="16" x:Name="titleDemographics"
                                    Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left"
                                    Width="227" Margin="10,0,0,0" FontWeight="Bold" Height="29"
                          />
@@ -260,12 +260,12 @@
                           Style="{DynamicResource MaterialDesignFlatButton}"
                            HorizontalAlignment="Right"
                             x:Name="SaveCustomerGraphicsButton"
-                            Foreground="#00BFFF" Height="32" Width="98" Click="SaveCustomerGraphicsButton_Click"  >
+                            Background="#00BFFF" Height="32" Width="218" Click="SaveCustomerGraphicsButton_Click"  >
 
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                            <StackPanel Orientation="Horizontal" Width="190">
+                                <materialDesign:PackIcon Foreground="White" Kind="ContentSave" Height="28" Width="27" />
                                 <TextBlock
-                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                 Text="Add demographics" Foreground="White" FontSize="18" Height="40" Width="189"
                                 />
                             </StackPanel>
                         </Button>
@@ -283,7 +283,7 @@
                               x:Name="InputCustomerDesc" 
                         />
 
-                        <StackPanel Grid.Column="0" VerticalAlignment="Top" Height="23" Margin="0,34,0,0" Grid.RowSpan="2">
+                        <StackPanel x:Name="PanelError" Grid.Column="0" VerticalAlignment="Top" Height="23" Margin="0,34,0,0" Grid.RowSpan="2">
                             <TextBlock x:Name="CustomerDescError" Foreground="red" 
                                    Visibility="Collapsed"/>
                         </StackPanel>
@@ -293,92 +293,25 @@
                 </materialDesign:Card>
 
 
-                <!--Card para poner los inputs de CustomerCustomerDemo-->
-                <materialDesign:Card Width="760" Height="146" Background="#FEFEFE" Margin="0 30 0 0 "
-                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
-
-                    <Grid >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="43"></RowDefinition>
-                            <RowDefinition Height="117"></RowDefinition>
-
-
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                <!--Card para CustomerDemoGraphics ver datos-->
+                <materialDesign:Card x:Name="Contextvergraphics" Width="760" Height="146" Background="#FEFEFE" Margin="0 30 0 0 "
+                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8" IsEnabled="False">
+                    <!--Para mostrar los datos de los product agregados-->
+                    <DataGrid x:Name="DataGridGraphics" Height="auto" Background="#FAFAFA"  
+                          VerticalAlignment="Top" HorizontalAlignment="Left" IsReadOnly="True"
+                       CanUserAddRows="False" CanUserDeleteRows="False" 
+                              BorderBrush="Black" 
+                           
+                          FontFamily="Arial" IsEnabled="False" Width="738">
 
 
-                        </Grid.ColumnDefinitions>
 
-                        <!--Para los textblock que van a ingresar texto-->
-                        <TextBlock Text="Customer Demo" FontSize="16"
-                                   Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left"
-                                   Width="227" Margin="10,0,0,0" FontWeight="Bold" Height="29"
-                         />
-
-                        <Button Grid.Column="1" VerticalAlignment="Center"
-                          Style="{DynamicResource MaterialDesignFlatButton}"
-                           HorizontalAlignment="Left"
-                            x:Name="SaveCustomerDemoButton"
-                            Foreground="#00BFFF" Height="32" Width="98" Click="SaveCustomerDemoButton_Click" Margin="274,0,0,0"  >
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
-                                <TextBlock
-                                 Text="Save" FontSize="18" Height="38" Width="39"
-                                />
-                            </StackPanel>
-                        </Button>
-
-                        <ComboBox materialDesign:HintAssist.Hint="Customer" Grid.Column="0"  Grid.Row="1"
-                                    IsEditable="True" Margin="0,20,10,0" x:Name="InputCustomerDemo" VerticalAlignment="Top"
-                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="55">
-                            <ComboBoxItem
-                                         IsSelected="True">
-                                choose customer
-                            </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
-
-                        </ComboBox>
-                        <StackPanel Grid.Column="0" VerticalAlignment="Top" Height="20" Grid.Row="1">
-                            <TextBlock x:Name="EmployeesError" Foreground="red" 
-                                   Visibility="Collapsed"/>
-                        </StackPanel>
+                    </DataGrid>
 
 
-                        <ComboBox materialDesign:HintAssist.Hint="Customer type" Grid.Column="1"  Grid.Row="1"
-                                    IsEditable="True"  x:Name="InputCustomertype" VerticalAlignment="Top"
-                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="50" Margin="0,25,0,0">
-                            <ComboBoxItem
-                                         IsSelected="True">
-                                choose customer type
-                            </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
 
-                        </ComboBox>
-
-                        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="top" Height="20">
-                            <TextBlock x:Name="CustomerIDDemoError" Foreground="red" 
-                                   Visibility="Collapsed"/>
-                        </StackPanel>
-
-                    </Grid>
 
                 </materialDesign:Card>
 

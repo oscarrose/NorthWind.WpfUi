@@ -30,7 +30,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
                                     VerticalAlignment="Top">
                             <materialDesign:PackIcon Kind="ArrowBack" Width="30" Height="25"/>
-                            <TextBlock Text="Add Empoloyees" FontSize="16" Margin="5,0,0,0" Width="128"/>
+                            <TextBlock x:Name="TitleEmployee" Text="Add Empoloyees" FontSize="16" Margin="5,0,0,0" Width="128"/>
                         </StackPanel>
                     </Button>
 
@@ -119,31 +119,26 @@
                             <TextBlock x:Name="TitleOfCountryError" Foreground="red" 
                                    Visibility="Collapsed"/>
                         </StackPanel>
-
-                        <TextBox  FontSize="14" Margin="0 0 10 10"
-                            materialDesign:HintAssist.Hint="Birth Date" 
-                                  materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
-                                  FontFamily="Arial"
+                        <DatePicker  FontSize="14" Margin="0,0,10,0"  
+                                materialDesign:HintAssist.Hint="Birth Date"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
                               Grid.Row="1"
-                              Grid.Column="0"
-                              x:Name="InputBirthDate" 
+                              Grid.Column="0" 
+                                 x:Name="InputBirthDate" Height="40"
                         />
+
+
                         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
                             <TextBlock x:Name="BirthDateError" Foreground="red" 
                                    Visibility="Collapsed"/>
                         </StackPanel>
 
-                        <TextBox  FontSize="14" Margin="0 0 10 10"
-                            materialDesign:HintAssist.Hint="Hire Birth" 
-                                  materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
-                                  FontFamily="Arial"
+                        <DatePicker  FontSize="14" Margin="0,0,10,0"
+                                materialDesign:HintAssist.Hint="Hire Date"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
                               Grid.Row="1"
-                              Grid.Column="1"
-                              x:Name="InputHireBirth" 
+                              Grid.Column="1" 
+                                 x:Name="InputHireDate" Height="40"
                         />
                         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
                             <TextBlock x:Name="HireBirthError" Foreground="red" 
@@ -326,7 +321,7 @@
                 </materialDesign:Card>
 
                 <!--Card para poner los inputs de EmployeeTerritories-->
-                <materialDesign:Card Width="755" Height="193" Background="#FEFEFE" Margin="0 30 0 0 "
+                <!--<materialDesign:Card Width="755" Height="193" Background="#FEFEFE" Margin="0 30 0 0 "
                   Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
 
                     <Grid >
@@ -344,7 +339,9 @@
 
                         </Grid.ColumnDefinitions>
 
-                        <!--Para los textblock que van a ingresar texto-->
+                        -->
+                <!--Para los textblock que van a ingresar texto-->
+                <!--
                         <TextBlock Text="Employees territories" FontSize="16"
                                    Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left"
                                    Width="227" Margin="10,0,0,0" FontWeight="Bold" Height="29"
@@ -417,7 +414,7 @@
 
                     </Grid>
 
-                </materialDesign:Card>
+                </materialDesign:Card>-->
             </StackPanel>
 
         </materialDesign:TransitioningContent>

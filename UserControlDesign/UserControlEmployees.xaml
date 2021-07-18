@@ -55,7 +55,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#4D9C70" Click="NewEmployeeButton_Click" >
+                                    Foreground="#4D9C70" >
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Add" Height="27" Width="26"/>
                                 </StackPanel>
@@ -94,7 +94,7 @@
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
-                                    Foreground="#FF2626">
+                                    Foreground="#FF2626" Click="DeleteEmployeeButton_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Delete" Height="22" Width="26"/>
                                 </StackPanel>
@@ -106,38 +106,15 @@
                     </Grid>
 
                     <!--Para mostrar los datos-->
-                    <DataGrid x:Name="DtGridEmployee" Width="auto" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
-                          VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" 
-                          FontFamily="Arial" Margin="10,0,10,10"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          FontSize="16" Foreground="Black">
-                        <DataGrid.Columns >
-                            <DataGridTemplateColumn Header="Employees ID" IsReadOnly="True" Width="auto"   />
-                            <DataGridTemplateColumn Header="Last Name" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Frist Name" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Title" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Title Of Country" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Birth Date" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Hire Birth" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Address" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="City" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Region" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Postal code" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Country" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Home Phone" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Extension" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Photo" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Notes" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Reports" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Photo Path" IsReadOnly="True" Width="auto"/>
+                    <Grid Height="630" Margin="10 0 10 10" >
 
-                        </DataGrid.Columns>
+                        <DataGrid x:Name="DataGridEmployees"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,0"  IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                        <System:String>&gt;</System:String>
-
-                    </DataGrid>
+                    </Grid>
 
 
 

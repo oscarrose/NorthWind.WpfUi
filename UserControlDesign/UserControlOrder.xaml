@@ -22,7 +22,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="10, 10,10,10"  VerticalAlignment="Top" HorizontalAlignment="Left">
                         <!--para el titulo-->
-                        <TextBlock Text="Ordes" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold"/>
+                        <TextBlock Text="Orders" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold"/>
                     </StackPanel>
                     <!--Para el modal de agregar y eso-->
                     <Grid>
@@ -88,11 +88,12 @@
                                 >
                             <Button 
                                   Style="{DynamicResource MaterialDesignFlatButton}"
-                                    x:Name="DeleteCustomerButton"
+                                    x:Name="DeleteOrderButton"
                                      BorderThickness="1"
                                       BorderBrush="White"
                                        Background="White"
                                         Cursor="Hand"
+                                    Click="DeleteOrderButton_Click"
                                     Foreground="#FF2626">
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="Delete" Height="22" Width="26"/>
@@ -105,35 +106,15 @@
                     </Grid>
 
                     <!--Para mostrar los datos-->
-                    <DataGrid x:Name="DtGridCustomer" Width="auto" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
-                          VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="Black" 
-                          FontFamily="Arial" Margin="10,0,10,10"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                          FontSize="16" Foreground="Black">
-                        <DataGrid.Columns >
-                            <DataGridTemplateColumn Header="Order ID" IsReadOnly="True" Width="auto"   />
-                            <DataGridTemplateColumn Header="Customer ID" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="EMployees ID" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Order Date" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Required Date" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Shipped Date" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Via" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Freight" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Name" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Address" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship City" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Region" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Postal code" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Ship Country" IsReadOnly="True" Width="auto"/>
-                      
+                    <Grid Height="630" Margin="10 0 10 10" >
 
-                        </DataGrid.Columns>
+                        <DataGrid x:Name="DataGridOrders"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,0"  IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                        <System:String>&gt;</System:String>
-
-                    </DataGrid>
+                    </Grid>
 
 
 

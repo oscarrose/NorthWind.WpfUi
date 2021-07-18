@@ -31,35 +31,16 @@
                 </Grid>
 
 
-                <!--Para poner el datagrid-->
+                <!--Para poner el datagrid-->              
+                <Grid Height="630" Margin="10 0 10 10" >
 
-                <DataGrid x:Name="DtGridListOrder" Width="auto" Height="auto" Background="White" FontFamily="Arial"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <DataGrid x:Name="DataListOrders"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,0"  IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn  Header="Order ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="85" />
-                        <DataGridTemplateColumn Header="Customer ID"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"  Width="110" />
-                        <DataGridTemplateColumn Header="Employee ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"  Width="112" />
-                        <DataGridTemplateColumn Header="Order Date"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Required Date"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Shipped Date" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Ship Via" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Freight"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}"/>
-                        <DataGridTemplateColumn Header="Ship Address"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Ship City"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-
-                        <DataGridTemplateColumn Header="Ship Region"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Ship Postal Code"  HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True"/>
-                        <DataGridTemplateColumn Header="Ship Country" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-
-
-                    <System:String>&gt;</System:String>
-
-
-                </DataGrid>
+                </Grid>
 
 
 

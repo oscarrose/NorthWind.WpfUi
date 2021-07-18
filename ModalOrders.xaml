@@ -85,21 +85,15 @@
                         </Grid.ColumnDefinitions>
 
                         <ComboBox materialDesign:HintAssist.Hint="Customer" Grid.Column="0"  Grid.Row="0"
-                                    IsEditable="True"  x:Name="InputCustomerId" VerticalAlignment="Top"
-                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="55">
+                                    IsEditable="True"  x:Name="InputCustomerId" VerticalAlignment="Stretch"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Margin="0,0,10,11">
                             <ComboBoxItem
                                          IsSelected="True">
                                 choose customer
                             </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
-
+                            
+                             
                         </ComboBox>
 
                         <StackPanel VerticalAlignment="Top">
@@ -112,21 +106,15 @@
 
 
 
-                        <ComboBox materialDesign:HintAssist.Hint="Customer" Grid.Column="1"  Grid.Row="0"
+                        <ComboBox materialDesign:HintAssist.Hint="Employees" Grid.Column="1"  Grid.Row="0"
                                     IsEditable="True"  x:Name="InputEmployeeId" VerticalAlignment="Top"
-                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="55">
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="39" Margin="0,0,10,0">
                             <ComboBoxItem
                                          IsSelected="True">
                                 choose employees
                             </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
 
                         </ComboBox>
 
@@ -298,13 +286,7 @@
                                 choose product
                             </ComboBoxItem>
 
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
+                           
 
                         </ComboBox>
 
@@ -340,6 +322,7 @@
                               Grid.Row="5"
                               Grid.Column="2"
                               x:Name="inputDiscount" Margin="0,0,10,10" 
+                                  Text="0"
                         />
                         <StackPanel Grid.Row="5" Grid.Column="2" VerticalAlignment="Top">
                             <TextBlock x:Name="DiscountError" Foreground="red" 
@@ -377,17 +360,21 @@
                   Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
 
                     <!--Para mostrar los datos de los product agregados-->
-                    <DataGrid x:Name="DtGridProduct" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
-                          VerticalAlignment="Top" HorizontalAlignment="Left"  BorderBrush="Black" 
+                    <DataGrid x:Name="DataGridOrderDatail" Height="auto" Background="#FAFAFA"  FontWeight="Bold"
+                          VerticalAlignment="Top" HorizontalAlignment="Left" IsReadOnly="True"
+                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" ItemsSource="{Binding details}"
+                              BorderBrush="Black" 
+                           
                           FontFamily="Arial"
+                             
     
-                          FontSize="16" Foreground="Black" Width="746">
+                          FontSize="14" Foreground="Black" Width="746" SelectionUnit="FullRow" SelectionMode="Extended">
                         <DataGrid.Columns >
-                            <DataGridTemplateColumn Header="Product" IsReadOnly="True" Width="370" />
-                            <DataGridTemplateColumn Header="Unit price" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Quantity" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Discount" IsReadOnly="True" Width="auto"/>
-                            <DataGridTemplateColumn Header="Amount" IsReadOnly="True" Width="auto"/>
+                            <DataGridTextColumn x:Name="CellProduct" Header="Product" Width="370" Binding="{Binding Path=ProductId}"/>
+                            <DataGridTextColumn x:Name="CellUnitPrice" Header="Unit price" Width="auto" Binding="{Binding Path=UnitPrice}"/>
+                            <DataGridTextColumn x:Name="CellQuantity" Header="Quantity" Width="auto" Binding="{Binding Path=Quantity}"/>
+                            <DataGridTextColumn x:Name="CellDiscount" Header="Discount" Width="auto"  Binding="{Binding Path=Discount}"/>
+                            <DataGridTextColumn x:Name="CellAmount" Header="Amount" Width="auto" Binding="{Binding Path=Amount}"/>
 
                         </DataGrid.Columns>
 

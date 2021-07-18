@@ -22,6 +22,9 @@
     <Compile Update="ModalProduct.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ModalSuppliers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Static\HomeControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ModalProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ModalSuppliers.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Static\HomeControl.xaml">

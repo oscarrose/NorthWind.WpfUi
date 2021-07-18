@@ -6,361 +6,119 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:NorthWind.WpfUi"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignWidth="800" Height="528">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="467*"/>
+            <ColumnDefinition Width="333*"/>
+        </Grid.ColumnDefinitions>
 
-        <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+        <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}" Grid.ColumnSpan="2">
             <!--Para la transicion-->
-            <StackPanel  Background="White" >
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" 
-                            Margin="10, 10,10,10" HorizontalAlignment="Left">
+            <StackPanel  Margin="-5,0,1,10" Background="#F5F5F5" Opacity="0.99">
+
+                <StackPanel Orientation="Horizontal" Margin="10, 10,10,10"  VerticalAlignment="Top" HorizontalAlignment="Left">
                     <!--para el titulo-->
-                    <TextBlock Text="Suppliers" Background="{x:Null}" Foreground="Black" FontWeight="Bold" 
-                               FontSize="35" HorizontalAlignment="Left" 
-                               FontFamily="Arial Rounded MT Bold" >
-
-                    </TextBlock>
+                    <TextBlock Text="Suppliers" Background="{x:Null}" Foreground="Black" FontWeight="Bold" FontSize="35" HorizontalAlignment="Left"  FontFamily="Arial Rounded MT Bold"/>
                 </StackPanel>
-                <Grid  VerticalAlignment="Top" Margin="0 10 10 0">
-
+                <!--Para el modal de agregar y eso-->
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-                        <RowDefinition ></RowDefinition>
-
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
 
+                        <ColumnDefinition Width="67*"/>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="29*"/>
+                        <ColumnDefinition Width="29*"/>
 
                     </Grid.ColumnDefinitions>
 
-                    <!--Para los textblock que van a ingresar texto-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Company name"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="0"
-                              Grid.Column="0"
-                              x:Name="inputCompanyName"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top">
-                        <TextBlock x:Name="CompanyNameError" Foreground="red" 
-                                   Visibility="Collapsed" Grid.Row="0" Grid.Column="0">
-                        </TextBlock>
+                    <!--Button para modal add -->
+                    <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                Margin="0,5,10,0"
+                                VerticalAlignment="Top" Height="35"
+                                >
+                        <Button 
+                                  Style="{DynamicResource MaterialDesignFlatButton}"
+                                    x:Name="NewSupplierButton"
+                                     BorderThickness="1"
+                                      BorderBrush="White"
+                                       Background="White"
+                                        Cursor="Hand"
+                                    Foreground="#4D9C70">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Add" Height="27" Width="26"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    <!--Button para modal edit-->
+                    <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                Margin="0,5,10,0"
+                                VerticalAlignment="Top" Height="35" Width="60"
+                                >
+                        <Button 
+                                  Style="{DynamicResource MaterialDesignFlatButton}"
+                                    x:Name="EditSupplierButton"
+                                     BorderThickness="1"
+                                      BorderBrush="White"
+                                       Background="White"
+                                        Cursor="Hand"
+                                        IsEnabled="False"
+                            
+                                    Foreground="#D98C00" >
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Edit" Height="22" Width="26"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
 
-                    <!--Para los textblock que van a ingresar texto contactname-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Contact name"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="0"
-                              Grid.Column="1"
-                              x:Name="inputContactName"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="0" Grid.Column="1">
-                        <TextBlock x:Name="ContactNameError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
+                    <!--Button para modal Delete-->
+                    <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                Margin="0,5,10,0"
+                                VerticalAlignment="Top" Height="35" Width="60"
+                                >
+                        <Button 
+                                  Style="{DynamicResource MaterialDesignFlatButton}"
+                                    x:Name="DeleteSupplierButton"
+                                     BorderThickness="1"
+                                      BorderBrush="White"
+                                       Background="White"
+                                        Cursor="Hand"
+                                         IsEnabled="False"
+                                    Foreground="#FF2626">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Delete" Height="22" Width="26"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto contactTile-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Contact title"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="0"
-                              Grid.Column="2"
-                              x:Name="inputContactTile"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="0" Grid.Column="2">
-                        <TextBlock x:Name="ContactTitleError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto address-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Address"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="1"
-                              Grid.Column="0"
-                              x:Name="InputAddress"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="1" Grid.Column="0">
-                        <TextBlock x:Name="AddressError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto city-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="City"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="1"
-                              Grid.Column="1"
-                              x:Name="InputCity"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="1" Grid.Column="1">
-                        <TextBlock x:Name="CityError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-
-                    <!--Para los textblock que van a ingresar texto regions-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Region"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="1"
-                              Grid.Column="2"
-                              x:Name="InputRegion"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="1" Grid.Column="2">
-                        <TextBlock x:Name="RegionError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto codepostal-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Postal code"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="2"
-                              Grid.Column="0"
-                              x:Name="InputZip"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="2" Grid.Column="0">
-                        <TextBlock x:Name="zipError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-
-                    <!--Para los textblock que van a ingresar texto country-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="country"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="2"
-                              Grid.Column="1"
-                              x:Name="Inputcountry"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="2" Grid.Column="1">
-                        <TextBlock x:Name="countryError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto phone-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Phone"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="2"
-                              Grid.Column="2"
-                              x:Name="InputPhone"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="2" Grid.Column="2">
-                        <TextBlock x:Name="PhoneError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Para los textblock que van a ingresar texto fax-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Fax"  
-                              Margin="20 5 0 10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="3"
-                              Grid.Column="0"
-                              x:Name="InputFax"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="3" Grid.Column="0">
-                        <TextBlock x:Name="FaxError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-
-                    <!--Para los textblock que van a ingresar texto HomePage-->
-                    <TextBox  FontSize="14"
-                            materialDesign:HintAssist.Hint="Home page"  
-                              Margin="20,5,0,10" materialDesign:HintAssist.Foreground="Black" 
-                              materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" FontFamily="Arial"
-                              Grid.Row="3"
-                              Grid.Column="1"
-                              x:Name="InputHomepage" Grid.ColumnSpan="2"
-                             
-                                          
-                    />
-                    <StackPanel VerticalAlignment="Top" Grid.Row="3" Grid.Column="1">
-                        <TextBlock x:Name="HomepageError" Foreground="red" 
-                                   Visibility="Collapsed" >
-                        </TextBlock>
-                    </StackPanel>
-
-
-
-
-
-
-
-
-
 
 
 
                 </Grid>
 
-                <!--Para los botones-->
-                <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 10 0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50*"></RowDefinition>
+              
+               
 
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                <!--Para mostrar los datos-->
+                <Grid Height="630"  >
 
-                    <!--Button para el crud el de save-->
-                    <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" 
-                                 
-                                 HorizontalAlignment="Left" Grid.Column="1"  Grid.Row="0" Height="50" 
-                                 Margin="7,0,0,0" Width="131">
-                        <Button 
-                              Style="{DynamicResource MaterialDesignFlatButton}"
-                                x:Name="SaveShippliersButton"
-                                Foreground="#00BFFF" Margin="0,15,0,3" Width="98" Click="SaveShippliersButton_Click_1" >
+                    <DataGrid x:Name="DataGridSuppliers"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" Margin="10,0,10,371"  
+                              SelectionUnit="FullRow"  SelectionMode="Single" GridLinesVisibility="Horizontal"  
+                              />
 
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ContentSave" />
-                                <TextBlock
-                                
-                                     Margin="8 0 0 0"
-                                      VerticalAlignment="Center"
-                                     Text="Save"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-
-                    <!--Button para el crud el de editar-->
-                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
-                                Height="50" Width="130" Grid.Row="0" >
-                        <Button 
-                              Style="{DynamicResource MaterialDesignFlatButton}"
-                                x:Name="EditSupplierButton"
-                                Foreground="#D98C00" Margin="-3,15,0,3" Width="98" >
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Edit" />
-                                <TextBlock
-                                
-                                     Margin="8 0 0 0"
-                                      VerticalAlignment="Center"
-                                     Text=" Edit"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-
-
-                    <!--Button para el crud el de Delete-->
-                    <StackPanel Grid.Column="3" Orientation="Horizontal"
-                                VerticalAlignment="Center" 
-                                HorizontalAlignment="Left" Height="50" Width="134">
-                        <Button 
-                              Style="{DynamicResource MaterialDesignFlatButton}"
-                                x:Name="DeleteShupplierButton"
-                                Foreground="#FF2626"  Margin="-5,15,10,0" Width="98" >
-
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Delete" Height="19"/>
-                                <TextBlock
-                                
-                                     Margin="3 0 0 0"
-                                      VerticalAlignment="Center"
-                                     Text="Delete" Width="93" Height="22"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
                 </Grid>
-
-                <!--Para ver los datos-->
-                <DataGrid  x:Name="DataGridShippers"  Background="White" FontFamily="Arial" Margin="10 10 10 0"
-                          ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left"
-                          ScrollViewer.VerticalScrollBarVisibility="Auto" Width="auto" Height="auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto" >
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Supplier ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Company name" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Contact title" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto" />
-                        <DataGridTextColumn Header="Address" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="City" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto" />
-                        <DataGridTextColumn Header="Region" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Postal code" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Country" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Phone" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Fax" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto"/>
-                        <DataGridTextColumn Header="Home page" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="auto" />
-
-                    </DataGrid.Columns>
-
-
-
-
-                </DataGrid>
-
-
-
 
 
             </StackPanel>
-
         </materialDesign:TransitioningContent>
 
     </Grid>

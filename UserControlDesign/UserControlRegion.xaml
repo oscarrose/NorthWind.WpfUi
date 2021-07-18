@@ -43,29 +43,49 @@
 
                     <StackPanel  Margin="148,49,8,0" Background="white" Grid.RowSpan="2" HorizontalAlignment="Right">
                         <!--Para poner los botones del crud-->
-                        <Grid>
+                        <Grid Width="452">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
 
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="119"/>
-                                <ColumnDefinition Width="133"/>
-                                <ColumnDefinition Width="117"/>
-                                <ColumnDefinition Width="132"/>
-                                <ColumnDefinition Width="125"/>
+                                <ColumnDefinition Width="95"/>
+
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="152"/>
+                                <ColumnDefinition Width="146"/>
                             </Grid.ColumnDefinitions>
+
+                            <!--Button para el crud el de new-->
+                            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Height="50" Width="138" Grid.Column="0" Grid.ColumnSpan="2">
+                                <Button 
+                              Style="{DynamicResource MaterialDesignFlatButton}"
+                               HorizontalAlignment="Left"
+                                x:Name="NewRegionButton"
+                                Foreground="#4D9C70" Margin="0,15,0,3"  >
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Add" />
+                                        <TextBlock
+                                
+                                     Margin="8 0 0 0"
+                                      VerticalAlignment="Center"
+                                     Text="New"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+
 
 
 
                             <!--Button para el crud el de save-->
-                            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"  Height="50" Width="138" Grid.Column="2" Grid.ColumnSpan="2">
+                            <StackPanel  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="50" Width="118" Grid.Column="1">
                                 <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
                                HorizontalAlignment="Left"
                                 x:Name="SaveRegionButton"
-                                Foreground="#00BFFF" Margin="0,15,0,3" Click="SaveRegionButton_Click" >
+                                Foreground="#00BFFF" Margin="0,15,0,3" Click="SaveRegionButton_Click" IsEnabled="False" >
 
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Kind="ContentSave" />
@@ -73,26 +93,25 @@
                                 
                                      Margin="8 0 0 0"
                                       VerticalAlignment="Center"
-                                     Text="Save region"/>
+                                     Text="Save"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
 
                             <!--Button para el crud el de editar-->
-                            <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="112">
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="152">
                                 <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
-                               HorizontalAlignment="Left"
                                 x:Name="EditRegionButton"
-                                Foreground="#D98C00" Margin="-3,15,0,3" >
+                                Foreground="#D98C00" Margin="-3,15,0,3" IsEnabled="False" Width="150" >
 
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Width="124">
                                         <materialDesign:PackIcon Kind="Edit" />
                                         <TextBlock
                                 
                                      Margin="8 0 0 0"
                                       VerticalAlignment="Center"
-                                     Text=" Edit region"/>
+                                     Text="Save changes" Width="98" Height="21"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
@@ -100,11 +119,11 @@
 
 
                             <!--Button para el crud el de Delete-->
-                            <StackPanel Grid.Column="4" Grid.Row="0" Margin="0, 0,-15,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Height="50" Width="140">
+                            <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Height="50" Width="140">
                                 <Button 
                               Style="{DynamicResource MaterialDesignFlatButton}"
                                 x:Name="DeleteRegionButton"
-                                Foreground="#FF2626"  Margin="-2,15,10,3" Width="141" >
+                                Foreground="#FF2626"  Margin="-2,15,10,3" Width="141" IsEnabled="False" >
 
                                     <StackPanel Orientation="Horizontal">
                                         <materialDesign:PackIcon Kind="Delete" Height="19"/>
@@ -112,7 +131,7 @@
                                 
                                      Margin="3 0 0 0"
                                       VerticalAlignment="Center"
-                                     Text="Delete region" Width="93" Height="22"/>
+                                     Text="Delete" Width="93" Height="22"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>
@@ -136,20 +155,17 @@
 
 
                 </Grid>
-                <DataGrid  x:Name="DataGridRegion"  Background="White" FontFamily="Arial" Margin="10 10 10 0"
-                          ScrollViewer.CanContentScroll="True" 
-                          ScrollViewer.VerticalScrollBarVisibility="Auto"
-                          ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <!--Para ver los datos-->
+                <Grid Height="191" >
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Region ID" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Region descripcion" HeaderStyle="{DynamicResource MaterialDesignFlatMidBgButton}" IsReadOnly="True" Width="*"/>
+                    <DataGrid x:Name="DataGridRegion"  FontSize="14"
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible"   IsReadOnly="True" 
+                              Focusable="False" SelectionUnit="FullRow" 
+                              />
 
-                    </DataGrid.Columns>
+                </Grid>
 
-
-
-                </DataGrid>
 
 
 

@@ -5,5 +5,6 @@
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)materialdesignthemes\4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('$(NuGetPackageRoot)materialdesignthemes\4.1.0\build\MaterialDesignThemes.targets')" />
+    <Import Project="$(NuGetPackageRoot)bricelam.entityframeworkcore.pluralizer\1.0.0\build\netstandard2.0\Bricelam.EntityFrameworkCore.Pluralizer.targets" Condition="Exists('$(NuGetPackageRoot)bricelam.entityframeworkcore.pluralizer\1.0.0\build\netstandard2.0\Bricelam.EntityFrameworkCore.Pluralizer.targets')" />
   </ImportGroup>
 </Project>

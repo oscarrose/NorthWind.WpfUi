@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NorthWind.WpfUi.Models;
+using NorthWind.WpfUi.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace NorthWind.WpfUi
 {
@@ -20,15 +24,22 @@ namespace NorthWind.WpfUi
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+      
+
         //Para controlar maximizar y minimizar
         bool isvalid = true;
         public MainWindow()
         {
             
-
             InitializeComponent();
-           
+
+            Getbasedata.LoadSetting();
+            Getbasedata.Getconnectiondb();
+            
         }
+
+      
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -38,8 +49,17 @@ namespace NorthWind.WpfUi
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception ex)
+            {
 
-            DragMove();
+                MessageBox.Show(ex.Message, "Unexpected error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+           
         }
         public void Minimized()
         {
@@ -122,7 +142,13 @@ namespace NorthWind.WpfUi
                     GridOfUserControl.Children.Clear();
                     GridOfUserControl.Children.Add(new UserControlShippers());
                     break;
+                case 11:
+                    GridOfUserControl.Children.Clear();
+                    GridOfUserControl.Children.Add(new HomeControl());
 
+                    Application.Current.Shutdown();
+
+                    break;
                 default:
                     GridOfUserControl.Children.Clear();
                     GridOfUserControl.Children.Add(new HomeControl());

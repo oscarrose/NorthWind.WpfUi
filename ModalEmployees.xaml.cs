@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NorthWind.WpfUi.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NorthWind.WpfUi.Models;
 
 namespace NorthWind.WpfUi
 {
@@ -19,15 +21,15 @@ namespace NorthWind.WpfUi
     /// </summary>
     public partial class ModalEmployees : Window
     {
-        public ModalEmployees()
+        public int? id;
+        public ModalEmployees(int? id = null)
         {
             InitializeComponent();
+            this.id = id;
             InputLastName.TextChanged += InputLastName_TextChanged;
             InputFristName.TextChanged += InputFristName_TextChanged;
             InputTitle.TextChanged += InputTitle_TextChanged;
             InputTitleOfCountry.TextChanged += InputTitleOfCountry_TextChanged;
-            InputBirthDate.TextChanged += InputBirthDate_TextChanged;
-            InputHireBirth.TextChanged += InputHireBirth_TextChanged;
             InputAddress.TextChanged += InputAddress_TextChanged;
             InputCity.TextChanged += InputCity_TextChanged;
             InputRegion.TextChanged += InputRegion_TextChanged;
@@ -38,19 +40,43 @@ namespace NorthWind.WpfUi
             InputNotes.TextChanged += InputNotes_TextChanged;
             InputReports.TextChanged += InputReports_TextChanged;
             InputPhotoPath.TextChanged += InputPhotoPath_TextChanged;
-            InputEmployees.SelectionChanged += InputEmployees_SelectionChanged;
-            InputTerritory.SelectionChanged += InputTerritory_SelectionChanged;
+            InputHireDate.SelectedDateChanged += InputHireDate_SelectedDateChanged;
+            InputBirthDate.SelectedDateChanged += InputBirthDate_SelectedDateChanged;
+            this.Loaded += ModalEmployees_Loaded;
+            //InputEmployees.SelectionChanged += InputEmployees_SelectionChanged;
+            //InputTerritory.SelectionChanged += InputTerritory_SelectionChanged;
         }
 
-        private void InputTerritory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ModalEmployees_Loaded(object sender, RoutedEventArgs e)
         {
-            TerritoryEmployeeError.Visibility = Visibility.Collapsed;
+
+            if (id != null)
+            {
+                loaddate();
+            }
         }
 
-        private void InputEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void InputBirthDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            EmployeesError.Visibility = Visibility.Collapsed;
+            BirthDateError.Visibility = Visibility.Collapsed;
         }
+
+        private void InputHireDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HireBirthError.Visibility = Visibility.Collapsed;
+        }
+
+
+
+        //private void InputTerritory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    TerritoryEmployeeError.Visibility = Visibility.Collapsed;
+        //}
+
+        //private void InputEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    EmployeesError.Visibility = Visibility.Collapsed;
+        //}
 
         private void InputPhotoPath_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -181,7 +207,7 @@ namespace NorthWind.WpfUi
                 isvalid = false;
             }
 
-            if (InputHireBirth.Text.Trim().Length == 0)
+            if (InputHireDate.Text.ToString().Trim().Length == 0)
             {
                 HireBirthError.Text = "The hire birth is required";
 
@@ -279,8 +305,144 @@ namespace NorthWind.WpfUi
 
             if (isvalid)
             {
-                MessageBox.Show("saved");
+                try
+                {
+
+
+                    using (NorthwindContext db = new NorthwindContext())
+                    {
+
+                        if (id == null)
+                        {
+                            //agregar data
+                            Employee ep = new Employee();
+                            ep.LastName = InputLastName.Text;
+                            ep.FirstName = InputFristName.Text;
+                            ep.Title = InputTitle.Text;
+                            ep.TitleOfCourtesy = InputTitleOfCountry.Text;
+                            ep.BirthDate = InputBirthDate.SelectedDate;
+                            ep.HireDate = InputHireDate.SelectedDate;
+                            ep.Address = InputAddress.Text;
+                            ep.City = InputCity.Text;
+                            ep.Region = InputRegion.Text;
+                            ep.PostalCode = InputPostalcode.Text;
+                            ep.Country = InputCountry.Text;
+                            ep.HomePhone = InputHomePhone.Text;
+                            ep.Extension = InputExtension.Text;
+                            ep.Notes = InputNotes.Text;
+                            ep.ReportsTo = Convert.ToInt32(InputReports.Text);
+                            ep.PhotoPath = InputPhotoPath.Text;
+                            db.Employees.Add(ep);
+                            db.SaveChanges();
+                            clearinput();
+
+                        }
+                        if (id != null)
+                        {
+                            Employee ep = db.Employees.Find(id);
+                            ep.LastName = InputLastName.Text;
+                            ep.FirstName = InputFristName.Text;
+                            ep.Title = InputTitle.Text;
+                            ep.TitleOfCourtesy = InputTitleOfCountry.Text;
+                            ep.BirthDate = InputBirthDate.SelectedDate;
+                            ep.HireDate = InputHireDate.SelectedDate;
+                            ep.Address = InputAddress.Text;
+                            ep.City = InputCity.Text;
+                            ep.Region = InputRegion.Text;
+                            ep.PostalCode = InputPostalcode.Text;
+                            ep.Country = InputCountry.Text;
+                            ep.HomePhone = InputHomePhone.Text;
+                            ep.Extension = InputExtension.Text;
+                            ep.Notes = InputNotes.Text;
+                            ep.ReportsTo = Convert.ToInt32(InputReports.Text);
+                            ep.PhotoPath = InputPhotoPath.Text;
+                            db.SaveChanges();
+
+                            var result = MessageBox.Show($"Edit successfully! employees Id: {ep.EmployeeId}", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (result == MessageBoxResult.OK)
+                            {
+                                this.Close();
+
+                            }
+
+
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Unexpected error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+
+        }
+        /// <summary>
+        /// Para buscar los id y cargar los datos en el datagrid para editar
+        /// </summary>
+        private void loaddate()
+        {
+            using (NorthwindContext db = new NorthwindContext())
+            {
+
+                try
+                {
+
+                    Employee ep = db.Employees.Find(id);
+
+                   InputLastName.Text=ep.LastName;
+                    InputFristName.Text=ep.FirstName;
+                     InputTitle.Text=ep.Title;
+                    InputTitleOfCountry.Text=ep.TitleOfCourtesy;
+                     InputBirthDate.SelectedDate = Convert.ToDateTime(ep.BirthDate);
+                    InputHireDate.SelectedDate = (DateTime)ep.HireDate; 
+                    InputAddress.Text=ep.Address;
+                    InputCity.Text=ep.City;
+                    InputRegion.Text=ep.Region;
+                   InputPostalcode.Text=ep.PostalCode;
+                      InputCountry.Text=ep.Country;
+                   InputHomePhone.Text=ep.HomePhone;
+                    InputExtension.Text=ep.Extension;
+                     InputNotes.Text=ep.Notes;
+                     InputReports.Text=Convert.ToString(ep.ReportsTo);
+                     InputPhotoPath.Text=ep.PhotoPath;
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"unexpected error {ex}", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+
+
+
+            }
+
+
+
+        }
+
+        private void clearinput()
+        {
+            InputLastName.Clear();
+            InputFristName.Clear();
+            InputTitle.Clear();
+             InputTitle.Clear();
+           
+            
+            InputAddress.Clear();
+            InputCity.Clear();
+            InputRegion.Clear();
+            InputPostalcode.Clear();
+            InputCountry.Clear(); ;
+            InputHomePhone.Clear();
+            InputExtension.Clear(); ;
+            InputReports.Clear();
+            InputNotes.Clear();
+
+            InputPhotoPath.Clear();
 
         }
 
@@ -289,20 +451,20 @@ namespace NorthWind.WpfUi
             var isvalid = true;
 
 
-            if (InputEmployees.SelectedIndex == 0)
-            {
-                EmployeesError.Text = "The employee is required";
-                EmployeesError.Visibility = Visibility.Visible;
-                isvalid = false;
-            }
+            //if (InputEmployees.SelectedIndex == 0)
+            //{
+            //    EmployeesError.Text = "The employee is required";
+            //    EmployeesError.Visibility = Visibility.Visible;
+            //    isvalid = false;
+            //}
 
 
-            if (InputTerritory.SelectedIndex == 0)
-            {
-                TerritoryEmployeeError.Text = "The territory is required";
-                TerritoryEmployeeError.Visibility = Visibility.Visible;
-                isvalid = false;
-            }
+            //if (InputTerritory.SelectedIndex == 0)
+            //{
+            //    TerritoryEmployeeError.Text = "The territory is required";
+            //    TerritoryEmployeeError.Visibility = Visibility.Visible;
+            //    isvalid = false;
+            //}
 
 
             if (isvalid)

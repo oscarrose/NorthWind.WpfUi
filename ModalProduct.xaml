@@ -10,7 +10,7 @@
 
         <materialDesign:TransitioningContent x:Name="TrainsitionOfCOnteent" OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromTop, Duration=0:0:0.8}">
 
-            <StackPanel Background="White">
+            <StackPanel Background="White" RenderTransformOrigin="0.494,0.474">
 
                 <Grid VerticalAlignment="Top" Margin="0 20 20 0 ">
                     <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" 
                                     VerticalAlignment="Top">
                             <materialDesign:PackIcon Kind="ArrowBack" Width="30" Height="25"/>
-                            <TextBlock Text="Add Product" FontSize="16" Margin="5,0,0,0"/>
+                            <TextBlock Text="Add Product" x:Name="title" FontSize="16" Margin="5,0,0,0"/>
                         </StackPanel>
                     </Button>
 
@@ -39,18 +39,18 @@
                           Style="{DynamicResource MaterialDesignFlatButton}"
                            HorizontalAlignment="Right"
                             x:Name="SaveProductButton"
-                            Foreground="#00BFFF" Click="SaveProductButton_Click" >
+                            Background="#00BFFF" Click="SaveProductButton_Click" >
 
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ContentSave" Height="28" Width="27" />
+                            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="28" Width="27" />
                             <TextBlock
-                                 Text="Save" FontSize="18" Height="38" Width="39"
+                                 Text="Save"  Foreground="White" FontSize="18" Height="38" Width="39"
                                 />
                         </StackPanel>
                     </Button>
 
                 </Grid>
-                 <!--Card para poner los inputs-->
+                <!--Card para poner los inputs-->
                 <materialDesign:Card Width="760" Height="337" Background="#FEFEFE" Margin="0 20 0 0 "
                   Foreground="{DynamicResource PrimaryHueLightForegroundBrush}" Padding="8">
 
@@ -59,14 +59,14 @@
                             <RowDefinition Height="60"></RowDefinition>
                             <RowDefinition Height="60"></RowDefinition>
                             <RowDefinition Height="60"></RowDefinition>
-                          
+
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
-                            
+
                         </Grid.ColumnDefinitions>
 
                         <!--Para los textblock que van a ingresar texto-->
@@ -85,23 +85,18 @@
                                    Visibility="Collapsed" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>
 
-                         <ComboBox materialDesign:HintAssist.Hint="Supplier" Grid.Column="1"  Grid.Row="0"
-                                    IsEditable="True" Margin="0 10 10 10" x:Name="InputSupplierID" VerticalAlignment="Top"
+                        <ComboBox materialDesign:HintAssist.Hint="Supplier"
+                                 
+                                  Grid.Column="1"  
+                                    IsEditable="True" Margin="5,0,5,0" x:Name="InputSupplierID"
                                     Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                                    <ComboBoxItem
-                                         IsSelected="True">
-                                          choose supplier
-                                      </ComboBoxItem>
-                             
-                                        <ComboBoxItem>
-                                            HR
-                                        </ComboBoxItem>
-                             
-                                    <ComboBoxItem>
-                                        Finance
-                                    </ComboBoxItem>
+
+
+                            <ComboBoxItem  IsSelected="True">
                                
-                         </ComboBox>
+                                choose supplier
+                            </ComboBoxItem>
+                        </ComboBox>
                         <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
                             <TextBlock x:Name="SupplieridError" Foreground="red" 
                                    Visibility="Collapsed"/>
@@ -109,22 +104,15 @@
 
 
                         <ComboBox materialDesign:HintAssist.Hint="Categories" Grid.Column="2"  Grid.Row="0"
-                                    IsEditable="True" Margin="0 10 10 10" x:Name="InputCategoriesID" VerticalAlignment="Top"
+                                    IsEditable="True" Margin="0 10 10 10"
+                                  x:Name="InputCategoriesID" VerticalAlignment="Top" 
                                     Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                            <ComboBoxItem
-                                         IsSelected="True">
+                            <ComboBoxItem IsSelected="True">
+                      
                                 choose categories
                             </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                HR
-                            </ComboBoxItem>
-
-                            <ComboBoxItem>
-                                Finance
-                            </ComboBoxItem>
-
                         </ComboBox>
+                        
                         <StackPanel Grid.Row="0" Grid.Column="2" VerticalAlignment="Top">
                             <TextBlock x:Name="CategoriesidError" Foreground="red" 
                                    Visibility="Collapsed"/>
@@ -206,23 +194,26 @@
                                    Visibility="Collapsed" Grid.Row="2" Grid.Column="1"/>
                         </StackPanel>
 
-                        <TextBox  FontSize="14" Margin="0 0 10 10"
+                        <!--<TextBox  FontSize="14" Margin="0 0 10 10"
                             materialDesign:HintAssist.Hint="Discontinued" 
                                   materialDesign:HintAssist.Foreground="Black" 
                               materialDesign:TextFieldAssist.UnderlineBrush="#00BFFF"
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontWeight="Normal" 
                                   FontFamily="Arial"
-                              Grid.Row="2"
-                              Grid.Column="2"
+                      
                               x:Name="InputDiscontinued" 
-                        />
-                        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Top">
-                            <TextBlock x:Name="DiscontinuedError" Foreground="red" 
-                                   Visibility="Collapsed"/>
+                        />-->
+
+                        <StackPanel Grid.Row="2"  Grid.Column="2" Margin="0,0,0,10">
+
+                            <Label FontSize="14"  Height="28" Width="102" Margin="-100,10,-5,-5">
+                                Discontinued
+                            </Label>
+
+                            <CheckBox x:Name="InputDiscontinued"
+                              Margin="0,-20,0,0" HorizontalAlignment="Left"  Height="20" Width="26"/>
+
                         </StackPanel>
-
-
-
 
 
                     </Grid>

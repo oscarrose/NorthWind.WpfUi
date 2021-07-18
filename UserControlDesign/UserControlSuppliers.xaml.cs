@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NorthWind.WpfUi.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NorthWind.WpfUi.Models;
 
 namespace NorthWind.WpfUi
 {
@@ -23,185 +25,197 @@ namespace NorthWind.WpfUi
         public UserControlSuppliers()
         {
             InitializeComponent();
-            inputCompanyName.TextChanged += InputCompanyName_TextChanged;
-            inputContactName.TextChanged += InputContactName_TextChanged;
-            inputContactTile.TextChanged += InputContactTile_TextChanged;
-            InputAddress.TextChanged += InputAddress_TextChanged;
-            InputCity.TextChanged += InputCity_TextChanged;
-            InputRegion.TextChanged += InputRegion_TextChanged;
-            InputZip.TextChanged += InputZip_TextChanged;
-            Inputcountry.TextChanged += Inputcountry_TextChanged;
-            InputPhone.TextChanged += InputPhone_TextChanged;
-            InputFax.TextChanged += InputFax_TextChanged;
-            InputHomepage.TextChanged += InputHomepage_TextChanged;
+           
+            this.Loaded += UserControlSuppliers_Loaded;
+            NewSupplierButton.Click += NewSupplierButton_Click;
+            DataGridSuppliers.SelectionChanged += DataGridSuppliers_SelectionChanged;
+            EditSupplierButton.Click += EditSupplierButton_Click;
+            DeleteSupplierButton.Click += DeleteSupplierButton_Click;
         }
 
-        private void InputHomepage_TextChanged(object sender, TextChangedEventArgs e)
+        private void DeleteSupplierButton_Click(object sender, RoutedEventArgs e)
         {
-
-            HomepageError.Text = "";
-            HomepageError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputFax_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            FaxError.Text = "";
-            FaxError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputPhone_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            PhoneError.Text = "";
-            PhoneError.Visibility = Visibility.Collapsed;
-        }
-
-        private void Inputcountry_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            countryError.Text = "";
-            countryError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputZip_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            zipError.Text = "";
-            zipError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputRegion_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            RegionError.Text = "";
-            RegionError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputCity_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CityError.Text = "";
-            CityError.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void InputAddress_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            AddressError.Text = "";
-            AddressError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputContactTile_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ContactTitleError.Text = "";
-            ContactTitleError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputContactName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ContactNameError.Text = "";
-            ContactNameError.Visibility = Visibility.Collapsed;
-        }
-
-        private void InputCompanyName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            CompanyNameError.Text = "";
-            CompanyNameError.Visibility = Visibility.Collapsed;
-        }
-
-        private void SaveShippliersButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            var isvalid = true;
-
-            if (inputCompanyName.Text.Trim().Length==0)
+            int? id = getid();
+            if (id != null)
             {
-                CompanyNameError.Text = "The company name is required";
-                CompanyNameError.Visibility = Visibility.Visible;
-                isvalid = false;
+                try
+                {
+                    using (NorthwindContext db = new NorthwindContext())
+                    {
+
+                        try
+                        {
+
+                            var DetailConSupplier = (from p in db.Products
+                                                     join od in db.OrderDetails on p.ProductId equals od.ProductId
+                                                     join o in db.Orders on od.OrderId equals o.OrderId
+                                                     where p.SupplierId == getid()
+                                                     select od).ToList();
+
+
+                            var orderConShipper = (from p in db.Products
+                                                   join od in db.OrderDetails on p.ProductId equals od.ProductId
+                                                   join o in db.Orders on od.OrderId equals o.OrderId
+                                                   where p.SupplierId == getid()
+                                                   select o).ToList();
+
+                            var SupplierConProduct = (from p in db.Products
+                                                   join s in db.Suppliers on p.SupplierId equals s.SupplierId  
+                                                   where p.SupplierId == getid()
+                                                   select p).ToList();
+
+                            var ConsultSupplier = (from s in db.Suppliers
+                                                  where s.SupplierId == id
+                                                  select s).Single();
+
+                            var result = MessageBox.Show($"¿Desea eliminar Supplier: ? {ConsultSupplier.CompanyName}", "Information", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+
+                            if (result == MessageBoxResult.Yes)
+                            {
+                                foreach (var item in DetailConSupplier)
+                                {
+                                    db.OrderDetails.Remove(item);
+                                }
+                                foreach (var item in orderConShipper)
+                                {
+                                    db.Orders.Remove(item);
+
+                                }
+                                foreach (var item in SupplierConProduct)
+                                {
+                                    db.Products.Remove(item);
+
+                                }
+                                db.Suppliers.Remove(ConsultSupplier);
+                                db.SaveChanges();
+
+
+                                LoadSuppliers();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("unexpected error" + ex, "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("unexpected error the connection" + ex, "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
+
+
 
             }
-            if (inputContactName.Text.Trim().Length == 0)
+        }
+
+        private void EditSupplierButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            int? id = getid();
+
+            if (id != null)
             {
-                ContactNameError.Text = "The contact name is required";
-                ContactNameError.Visibility = Visibility.Visible;
-                isvalid = false;
+                var ModalSupplier = new ModalSuppliers(id);
+
+                ModalSupplier.title.Text = "Update suppliers";
+
+      
+                var result = ModalSupplier.ShowDialog();
+            }
+            LoadSuppliers();
+        }
+
+        private void DataGridSuppliers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (DataGridSuppliers.SelectedCells.Count > 0)
+            {
+                EditSupplierButton.IsEnabled = true;
+                DeleteSupplierButton.IsEnabled = true;
 
             }
+        }
 
-            if (inputContactTile.Text.Trim().Length == 0)
+        private void NewSupplierButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (true)
             {
-                ContactTitleError.Text = "The contact title is required";
-                ContactTitleError.Visibility = Visibility.Visible;
-                isvalid = false;
 
+                var ModalSupplier = new ModalSuppliers();
+
+
+                var result = ModalSupplier.ShowDialog();
             }
+            LoadSuppliers();
+        }
 
-            if (InputAddress.Text.Trim().Length == 0)
+        private void UserControlSuppliers_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadSuppliers();
+        }
+
+        private void LoadSuppliers()
+        {
+            using (NorthwindContext db = new NorthwindContext())
             {
-                AddressError.Text = "The address is required";
-                AddressError.Visibility = Visibility.Visible;
-                isvalid = false;
+                //consulta para mostrar data
+                var AllSupplier = from Supplier in db.Suppliers
+                                   //select order todas
+                               select new
+                               {
+                                  Supplier.SupplierId,
+                                  Supplier.CompanyName,
+                                  Supplier.ContactName,
+                                  Supplier.ContactTitle,
+                                  Supplier.Address,
+                                  Supplier.City,
+                                  Supplier.Region,
+                                  Supplier.PostalCode,
+                                  Supplier.Country,
+                                  Supplier.Phone,
+                                  Supplier.Fax,
+                     
+                               };
+                // mostrando la data
+                DataGridSuppliers.ItemsSource = AllSupplier.ToList();
 
-            }
-
-
-            if (InputCity.Text.Trim().Length == 0)
-            {
-                CityError.Text = "The city is required";
-                CityError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (InputRegion.Text.Trim().Length == 0)
-            {
-                RegionError.Text = "The region is required";
-                RegionError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (InputZip.Text.Trim().Length == 0)
-            {
-                zipError.Text = "The postal code is required";
-                zipError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (Inputcountry.Text.Trim().Length == 0)
-            {
-                countryError.Text = "The country is required";
-                countryError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (InputPhone.Text.Trim().Length == 0)
-            {
-                PhoneError.Text = "The phone is required";
-                PhoneError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (InputFax.Text.Trim().Length == 0)
-            {
-                FaxError.Text = "The fax is required";
-                FaxError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-
-            if (InputHomepage.Text.Trim().Length == 0)
-            {
-                HomepageError.Text = "The home page is required";
-                HomepageError.Visibility = Visibility.Visible;
-                isvalid = false;
-
-            }
-            if (isvalid)
-            {
-                //saved
 
             }
 
+
         }
+
+        /// <summary>
+        /// Obtener el id del items a editar
+        /// </summary>
+        /// <returns></returns>
+        private int? getid()
+        {
+            try
+            {
+                var result = ((dynamic)DataGridSuppliers.SelectedItem);
+                return result.SupplierId;
+
+            }
+            catch
+            {
+                return null;
+
+            }
+        }
+
+
+
+
     }
 
 
